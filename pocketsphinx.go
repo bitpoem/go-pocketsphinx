@@ -1,7 +1,7 @@
 package pocketsphinx
 
 /*
-#cgo pkg-config: pocketsphinx sphinxbase
+#cgo pkg-config: --static pocketsphinx sphinxbase
 #include <pocketsphinx.h>
 #include <err.h>
 #include <stdio.h>
