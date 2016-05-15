@@ -81,6 +81,7 @@ type Config struct {
 	SamplingRate  NullFloat
 	DisableInfo   bool
 	Language      string
+	NFFT		  NullInt
 }
 
 func (c Config) SetParams(psConfig *C.cmd_ln_t) {
@@ -120,7 +121,9 @@ func (c Config) SetParams(psConfig *C.cmd_ln_t) {
 	if c.SamplingRate.Valid {
 		setFloatParam(psConfig, "-samprate", c.SamplingRate.Float64)
 	}
-
+	if c.NFFT.Valid {
+		setIntParam(psConfig, "-nfft", c.NFFT.Int64)
+	}
 	if c.Debug.Valid {
 		setIntParam(psConfig, "-debug", c.Debug.Int64)
 	}
