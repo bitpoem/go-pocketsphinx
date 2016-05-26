@@ -82,11 +82,15 @@ type Config struct {
 	DisableInfo   bool
 	Language      string
 	NFFT		  NullInt
+	AGC			  string
 }
 
 func (c Config) SetParams(psConfig *C.cmd_ln_t) {
 	if c.Hmm != "" {
 		setStringParam(psConfig, "-hmm", c.Hmm)
+	}
+	if c.AGC != "" {
+		setStringParam(psConfig, "-agc", c.AGC)
 	}
 	if c.Dict != "" {
 		setStringParam(psConfig, "-dict", c.Dict)
